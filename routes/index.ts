@@ -5,6 +5,7 @@ import { Router } from "express";
 import Math from "./math.routes";
 import User from "./user.routes";
 import Conversacion from "./conversacion.routes";
+import dbTI from "./dbTI.routes"
 
 const router = Router();
 
@@ -12,5 +13,6 @@ const router = Router();
 router.use("/math", Math);
 router.use("/user", User);
 router.use("/conversacion", Conversacion);
+router.use("/dbti", dbTI);
 
 export default router;

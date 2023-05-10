@@ -1,5 +1,6 @@
 import express from "express";
-import ApiRoutes from "./routes/index"
+import ApiRoutes from "./routes/index";
+import cors from 'cors';
 
 const app = express();
 const port = 3000;
@@ -14,9 +15,10 @@ const port = 3000;
 
 // importar todas las rutas existentes
 // indicar a express que entienda el formato json
-app.use(express.json())
-app.use("/api", ApiRoutes)
+app.use(express.json());
+app.use(cors());
+app.use("/api", ApiRoutes);
 
 app.listen(port, () => {
     console.log(`Escuchando en el puerto ${port}`);
-})
+});
