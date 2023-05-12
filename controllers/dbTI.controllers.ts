@@ -40,9 +40,11 @@ export const getRandomProducts = (
       else i--;
     }
     res.status(200).json(productosMostrar);
-  } else if (!leerExcel(true).includes(req.query.categoria))
+  } else if (
+    !leerExcel(true).includes(req.query.categoria) && req.query.categoria != undefined
+  ) {
     res.status(400).json({ msg: "bad request" });
-    
+  }
   for (let i = 0; i < cantidad; i++)
     productosMostrar.push(
       productos[Math.floor(Math.random() * productos.length)]
