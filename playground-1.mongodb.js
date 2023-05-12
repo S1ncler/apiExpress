@@ -169,3 +169,7 @@ use("PokemondongoDb");
 // )
 
 // Punto 5
+// db.pokemondongos.find(
+//     { 'misc.sex.male': {$gt: "74"} },
+//     {name:1, _id: 0}
+// )
