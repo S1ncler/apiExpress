@@ -122,54 +122,50 @@
 //     ]}
 // )
 
-
 //DELETE
 // detelMany para varios o delete para uno
 // db.characters.deleteMany(
 //     {gender: {$eq: "Female"}}
 // )
 
-
 //db.characters.find({})
-
-
-
-
-
-
-
 
 // // crear una coleccion
 // db.createCollection("pokemondongoss")
 //db.pokemons.renameCollection("pokemondongos")
-use("PokemondongoDb")
+use("PokemondongoDb");
 
-db.pokemondongos.find(
-    {
-        $or: [
-            {$and: [
-                { type: { $eq: "Grass" } },
-                { type: { $eq: "Poison" } }
-            ]},
-            {$and: [
-                { type: { $eq: "Poison" } },
-                { type: { $eq: "Grass" } }
-            ]},
-            { type: { $eq: "Grass" } },
-            { type: { $eq: "Poison" } }            
-        ]
-    },
-    { name: 1, _id: 0 }
-)
-
+// Punto 1
 // db.pokemondongos.find(
-//     {type: {$eq: "Grass"}}
-//     )
+//   {
+//     $or: [{ type: { $eq: "Grass" } }, { type: { $eq: "Poison" } }],
+//   },
+//   { name: 1, _id: 0 }
+// );
 
-
-
-
+// Punto 2
 // db.pokemondongos.find(
-//     { 'stats.hp': { $eq: 45 } },
+//     {$or: [
+//         { 'stats.hp': { $gt: 40 } },
+//         { 'stats.attack': { $gt: "62"} },
+//         { 'stats.defense': { $gt: "60"} }
+//     ]},
 //     { name: 1, _id: 0 }
 // )
+
+// Punto 3
+// db.pokemondongos.find(
+//     { type: { $eq: "Dragon" } }
+//     , { name: 1, _id: 0 }
+// );
+
+// Punto 4
+// db.pokemondongos.find(
+//     {$and: [
+//         { 'damages.ice': {$eq: "1"}},
+//         { 'damages.grass': {$eq: "0.5"}}
+//     ]},
+//     {name: 1, _id: 0}
+// )
+
+// Punto 5
