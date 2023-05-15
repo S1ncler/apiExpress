@@ -1,10 +1,10 @@
 import Express from "express";
 const XLSX = require("xlsx");
 
-export const getProducts = (
+export const getProducts = async (
   req: Express.Request,
   res: Express.Response
-): void => {
+) => {
   const productos = leerExcel();
   res.status(200).json(productos);
   console.log("atendi una peticion");
@@ -100,8 +100,8 @@ function leerExcel(cat: boolean = false) {
   let categorias = Object.keys(data);
   for (let i in data) {
     data[i].forEach((producto: any) => {
+      producto.price = Number(producto.price.split(" ")[1]);
       producto.image = producto.image.replace(/\[|\]|"/g, "").split(",");
-      producto["categoria"] = categorias[categorias.indexOf(i)];
       productos.push(producto);
     });
   }

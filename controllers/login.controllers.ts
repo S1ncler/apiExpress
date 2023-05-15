@@ -17,7 +17,7 @@ let usuarios = [
     email: "dan@correo.com",
   },
   {
-    usuario: "Goku",
+    usuario: "Goku",  
     contraseña: "contraseñaGoku",
     email: "goku@correo.com",
   },
@@ -44,9 +44,9 @@ export const loggear = (req: Express.Request, res: Express.Response): void => {
   }
 };
 
-export const addUser = (req: Express.Request, res: Express.Response): void => {
-  let datos = req.body;
+export const addUser = (req: Express.Request, res: Express.Response): void => {  
   try {
+    let datos = req.body;
     if (
       datos.usuario === undefined ||
       datos.usuario === null ||
