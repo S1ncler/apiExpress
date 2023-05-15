@@ -1,10 +1,10 @@
 import Express from "express";
 const XLSX = require("xlsx");
 
-export const getProducts = (
+export const getProducts = async (
   req: Express.Request,
   res: Express.Response
-): void => {
+) => {
   const productos = leerExcel();
   res.status(200).json(productos);
   console.log("atendi una peticion");

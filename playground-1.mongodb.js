@@ -145,12 +145,19 @@ use("PokemondongoDb");
 
 // Punto 2
 // db.pokemondongos.find(
-//     {$or: [
-//         { 'stats.hp': { $gt: 40 } },
-//         { 'stats.attack': { $gt: "62"} },
-//         { 'stats.defense': { $gt: "60"} }
-//     ]},
-//     { name: 1, _id: 0 }
+//     {
+//         $or: [
+//             { 'stats.hp': { $gt: 40 } },
+//             { 'stats.attack': { $gt: "62" } },
+//             { 'stats.defense': { $gt: "60" } }
+//         ]
+//     },
+//     {
+//         name: 1,
+//         _id: 0, 'stats.hp': 1,
+//         'stats.attack': 1,
+//         'stats.defense': 1
+//     }
 // )
 
 // Punto 3
@@ -169,3 +176,7 @@ use("PokemondongoDb");
 // )
 
 // Punto 5
+// db.pokemondongos.find(
+//     { 'misc.sex.male': {$gt: "74"} },
+//     {name:1, _id: 0}
+// )
