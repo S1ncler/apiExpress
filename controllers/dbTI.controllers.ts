@@ -97,11 +97,10 @@ function leerExcel(cat: boolean = false) {
     // convierte la hoja a un objeto JSON
     data[sheetName] = XLSX.utils.sheet_to_json(worksheet);
   });
-  let categorias = Object.keys(data);
   for (let i in data) {
     data[i].forEach((producto: any) => {
+      producto.price = Number(producto.price.split(" ")[1]);
       producto.image = producto.image.replace(/\[|\]|"/g, "").split(",");
-      producto["categoria"] = categorias[categorias.indexOf(i)];
       productos.push(producto);
     });
   }
